@@ -1,0 +1,23 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none !important;
+  color:none !important;
+}
+a:visited{
+  color: 'white' !important;
+}
+
+.router{
+  height: auto;
+}
+
