@@ -2,6 +2,10 @@
   "name": "onlinecommerce",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.3.0",
+    "node": "9.1.1"
+  },
   "dependencies": {
     "webpack": "^3.0.0",
     "@material-ui/core": "^1.4.2",
