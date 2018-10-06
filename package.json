@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "npm": "6.3.0",
-    "node": "9.1.1"
+    "node": "9.2.1"
   },
   "dependencies": {
     "webpack": "^3.0.0",
