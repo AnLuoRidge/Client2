@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'react-icons-kit';
 import { ic_search } from 'react-icons-kit/md/ic_search';
+import { ic_dashboard } from 'react-icons-kit/md/ic_dashboard';
 import { connect } from 'react-redux';
 import Logo from '../Img/logo.png';
 import * as style from './headerPageCss';
@@ -16,7 +17,7 @@ class headerPageIndex extends Component {
 		super(props);
 		this.state = {
 			categories: [],
-			cartNumber: 0,
+			cartNumber: 0
 		};
 	}
 
@@ -28,6 +29,10 @@ class headerPageIndex extends Component {
 		if (this.props.auth.isAuthenticated !== prevProps.auth.isAuthenticated) {
 			this.props.getUsersCart();
 		}
+	}
+
+	openDashboard() {
+		window.location = '/admin';
 	}
 
 	render() {
@@ -45,16 +50,22 @@ class headerPageIndex extends Component {
 				<div style={containerDiv}>
 					<div style={logoPart}>
 						<img src={Logo} style={iconLogo} alt="logo" />
-						<div style={searchIcon}>
+						{/* <div style={searchIcon}>
 							<SearchInput/>
 							<Icon icon={ic_search} size={24} style={{ marginBottom: '8px' }} />
-						</div>
+						</div> */}
 						<div style={rightIcon}>
 							<AuthIcon
 								isAuthenticated={this.props.auth.isAuthenticated}
 								logoutUser={this.props.logoutUser}
 							/>
 							<Cart number={this.props.cartCount} auth={this.props.auth.isAuthenticated} />
+							{this.props.isAdmin && <div 
+							title='Dashboard' 
+							onClick={this.openDashboard} 
+							style={{'cursor':'pointer','marginLeft':'15px'}}>
+							<Icon icon={ic_dashboard} size={30}/>
+							</div>}
 						</div>
 					</div>
 				</div>
@@ -67,6 +78,7 @@ class headerPageIndex extends Component {
 const mapStateToProps = state => ({
 	auth: state.auth,
 	cartCount: state.headerReducer.cartNumber,
+	isAdmin: state.auth.user.isStaff,
 });
 
 export default connect(mapStateToProps, {
