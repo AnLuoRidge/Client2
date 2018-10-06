@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "ajv": "^6.0.0",
-    "webpack": "^3.0.0"
+    "webpack": "^3.0.0",
+    "eslint-plugin-no-unused-expressions": "^0.1.0"
   }
 }
